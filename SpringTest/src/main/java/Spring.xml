@@ -66,5 +66,5 @@
 	  </bean>
  
   <bean name="descripberAspect" class="com.tiru.springtest.SpringTest.Aspect.DescripberAspect"/>
-	<mytag>
+	
 </beans>
