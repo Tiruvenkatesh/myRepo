@@ -64,12 +64,6 @@
 	  		</list>
 	  	</property>
 	  </bean>
-  
-  <bean name="descripberAspect" class="com.tiru.springtest.SpringTest.Aspect.DescripberAspect"/>
-  <aop:config>
-  	 <aop:aspect >
-  	 	<aop:pointcut ></aop:pointcut>
-  	 </aop:aspect>
-  </aop:config>
  
+  <bean name="descripberAspect" class="com.tiru.springtest.SpringTest.Aspect.DescripberAspect"/> 
 </beans>
