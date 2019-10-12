@@ -71,5 +71,6 @@
         <property name="password" value="smp3futcm5" />
         <property name="url" value="jdbc:oracle:thin:@//oradbc-det-40.office.intern:1521:PSIG402T.office.intern;create=true" />
         <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+    
     </bean>	
 </beans>
