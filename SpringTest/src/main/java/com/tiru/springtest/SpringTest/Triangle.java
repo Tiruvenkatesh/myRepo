@@ -11,11 +11,22 @@ import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 
 import com.tiru.springtest.SpringTest.Annotation.CustomAnnotation;
+import com.tiru.springtest.SpringTest.DAOTest.DAOTester;
 import com.tiru.springtest.SpringTest.Events.CustomEvent;
 
 @Component
 public class Triangle implements Shape,ApplicationEventPublisherAware {
 	private MessageSource messageSource;
+	private DAOTester modemIstance;
+	public DAOTester getModemIstance() {
+		return modemIstance;
+	}
+
+
+	public void setModemIstance(DAOTester modemIstance) {
+		this.modemIstance = modemIstance;
+	}
+
 	private ApplicationEventPublisher publisher;
 	private List<Point> points;
 	
