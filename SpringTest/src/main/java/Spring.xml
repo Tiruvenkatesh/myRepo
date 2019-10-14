@@ -48,8 +48,13 @@
 				<ref bean="pointC"/>
 			</list>
 		</property>
+		<property name="modemIstance" ref="dAOTester"/>
     </bean> 
- 
+    
+	 <bean name="dAOTester" class="com.tiru.springtest.SpringTest.DAOTest.DAOTester">
+	 	<property name="dataSource" ref="dataSource"/>
+ 	 </bean>
+ 	 
 	 <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
 	 <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
 	<!--   <bean class="com.tiru.springtest.SpringTest.PostProccessor.CustomBeanPostProcessor"/> -->
@@ -66,11 +71,16 @@
 	  </bean>
  
   <bean name="descripberAspect" class="com.tiru.springtest.SpringTest.Aspect.DescripberAspect"/>
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+<!--    <property name="username" value="ziggosmp62l3supportcm" />
+        <property name="password" value="ziggosmp62l3support" />
+        <property name="url" value="jdbc:oracle:thin:@torvm-ora12c-delv:1521:pdb_delv12c" />
+        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" /> -->
+        
         <property name="username" value="smpcm" />
-        <property name="password" value="smp3futcm5" />
-        <property name="url" value="jdbc:oracle:thin:@//oradbc-det-40.office.intern:1521:PSIG402T.office.intern;create=true" />
-        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-    
+        <property name="password" value="smp441" />
+        <property name="url" value="jdbc:oracle:thin:@oradbc-acc-30.office.intern:1521/PSIG303A.office.intern" />
+        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />        
     </bean>	
+
 </beans>

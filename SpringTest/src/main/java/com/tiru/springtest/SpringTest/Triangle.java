@@ -16,20 +16,12 @@ import com.tiru.springtest.SpringTest.Events.CustomEvent;
 
 @Component
 public class Triangle implements Shape,ApplicationEventPublisherAware {
-	private MessageSource messageSource;
-	private DAOTester modemIstance;
-	public DAOTester getModemIstance() {
-		return modemIstance;
-	}
-
-
-	public void setModemIstance(DAOTester modemIstance) {
-		this.modemIstance = modemIstance;
-	}
-
-	private ApplicationEventPublisher publisher;
 	private List<Point> points;
-	
+	private MessageSource messageSource;
+	private ApplicationEventPublisher publisher;
+	@Autowired
+	private DAOTester modemIstance;
+		
 	@CustomAnnotation
 	public List<Point> getPoints() {
 		return points;
@@ -45,22 +37,29 @@ public class Triangle implements Shape,ApplicationEventPublisherAware {
 	}
 
 	@Autowired
-	
 	public void setMessageSource(MessageSource messageSource) {
 		this.messageSource = messageSource;
 	}
 
+	public DAOTester getModemIstance() {
+		return modemIstance;
+	}
 
+
+	public void setModemIstance(DAOTester modemIstance) {
+		this.modemIstance = modemIstance;
+	}
+	
 	public void draw() {
 		for( Point p: points ){
 			System.out.println("Point A of triangle is =>"+p.getX()+":"+p.getY());
 			//System.out.println("Message Source message is "+this.messageSource.getMessage("x", null, "xx", Locale.US));
 			publisher.publishEvent(new CustomEvent(this));
+			System.out.println(modemIstance.getModemInstance());
 		}
 		
 	}
 
-	
 	
 	@PostConstruct
 	public void afterPropertiesSet1() throws Exception {
@@ -70,15 +69,12 @@ public class Triangle implements Shape,ApplicationEventPublisherAware {
 
 	@PreDestroy
 	public void destroy1() throws Exception {
-		System.out.println("Bean1 has got destroyed");
-		
+		System.out.println("Bean1 has got destroyed");		
 	}
 
 	public void setApplicationEventPublisher(ApplicationEventPublisher publisher) {
 		this.publisher= publisher;
 		
 	}
-	
-
 	
 }
